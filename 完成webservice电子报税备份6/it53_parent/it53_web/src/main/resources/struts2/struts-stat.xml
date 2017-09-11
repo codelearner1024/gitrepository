@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 继承struts.xml -->
+	<package name="stat" namespace="/stat" extends="default">
+		<!-- class="会从spring配置文件中寻找这个类 -->
+		<action name="statChartAction_*" method="{1}" class="statChartAction">
+			<!-- <result name="factorysale">/WEB-INF/pages/stat/chart/jStat.jsp?forward=factorysale</result>
+			<result name="onlineinfo">/WEB-INF/pages/stat/chart/jStat.jsp?forward=onlineinfo</result>
+			<result name="productsale">/WEB-INF/pages/stat/chart/jStat.jsp?forward=productsale</result> -->
+			<result name="factorysale">/WEB-INF/pages/stat/chart/factory_pie.html</result>
+			<result name="factorysale2">/WEB-INF/pages/stat/chart/factorysaleview.htm</result>
+			<result name="productsale">/WEB-INF/pages/stat/chart/productsale_line.html</result>
+			<result name="onlineinfo">/WEB-INF/pages/stat/chart/onlineinfo_bar.html</result>
+		</action>
+	</package>
+</struts>
+	

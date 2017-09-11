@@ -1,0 +1,8 @@
+cn\itcast\jk\service\impl\ModuleServiceImpl.class
+cn\itcast\jk\service\RoleService.class
+cn\itcast\jk\service\DeptService.class
+cn\itcast\jk\service\impl\RoleServiceImpl.class
+cn\itcast\jk\service\impl\DeptServiceImpl.class
+cn\itcast\jk\service\ModuleService.class
+cn\itcast\jk\service\impl\UserServiceImpl.class
+cn\itcast\jk\service\UserService.class

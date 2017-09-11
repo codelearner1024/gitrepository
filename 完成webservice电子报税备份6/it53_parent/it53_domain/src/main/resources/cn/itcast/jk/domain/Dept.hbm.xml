@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+    
+<hibernate-mapping package="cn.itcast.jk.domain">
+	<class name="Dept" table="DEPT_P"  dynamic-insert="true" dynamic-update="true">
+		<!--hibernate主键生成策略：native, increment,sequence,uuid,assigned,identity  -->
+		<id name="id" type="string" column="DEPT_ID">
+			<generator class="uuid"/>
+		</id>
+		<property name="deptName" type="string" column="DEPT_NAME"/>
+		<property name="state" type="int" column="STATE"/>
+		
+		<!-- 自关联关系多对一，多个部门归属一个部门 -->
+		<many-to-one name="parent" class="Dept" column="PARENT_ID"/>
+		
+	</class>
+</hibernate-mapping>

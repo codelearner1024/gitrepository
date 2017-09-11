@@ -1,0 +1,6 @@
+cn\itcast\jk\domain\Dept.class
+cn\itcast\jk\domain\Role.class
+cn\itcast\jk\domain\Userinfo.class
+cn\itcast\jk\domain\BaseEntity.class
+cn\itcast\jk\domain\Module.class
+cn\itcast\jk\domain\User.class

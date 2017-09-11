@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.itcast.jk.domain">
+	
+	<!-- dynamic-insert="true" dynamic-update="true" 表示能够使用数据库的一些默认值（如果没有值插入的话）-->
+	
+	<class name="User" table="USER_P"  dynamic-insert="true" dynamic-update="true">
+	
+		<!--hibernate主键生成策略：native, increment,sequence,uuid,assigned,identity  -->
+	
+		<id name="id" type="string" column="USER_ID">
+			<!-- 采用手动给主键赋值的方案，为了能够和userinfo主键一致，所以手动设置 -->
+			<generator class="assigned"/>
+		</id>
+		<property name="userName" column="USER_NAME"/>
+		<property name="password" column="PASSWORD"/>
+		<property name="state" column="STATE"></property>
+		<property name="createBy" column="CREATE_BY"></property>
+		<property name="createDept" column="CREATE_DEPT"></property>
+		<property name="createTime" column="CREATE_TIME"></property>
+		<property name="updateBy" column="UPDATE_BY"></property>
+		<property name="updateTime" column="UPDATE_TIME"></property>
+		
+		<!-- 多对一，多个用户归属一个部门 一般都是多的一方设置一下关联就可以了  column="DEPT_ID：表示增加一列外键-->
+	
+		<many-to-one name="dept" class="Dept" column="DEPT_ID"/>
+	
+		<!-- cascade="all" 代表级联操作   all  就是指增删改查   一对一也是一样在一方指定就可以了，以后该方可以找到另一方-->
+	
+		<one-to-one name="userinfo" class="Userinfo" cascade="all" ></one-to-one>
+		
+		<!-- 用户和角色是多对多的关系  -->
+		<set name="roles" table="ROLE_USER_P">
+			<!-- 对应在中间表的键名 -->
+			<key column="USER_ID"></key>
+			<many-to-many class="Role" column="ROLE_ID"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
